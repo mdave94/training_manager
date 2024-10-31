@@ -33,3 +33,7 @@
 .day.empty {
   border: none;
 }
+
+.currentDay {
+  background-color: aliceblue;
+}

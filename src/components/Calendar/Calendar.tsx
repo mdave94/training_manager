@@ -10,6 +10,7 @@ const mockedDataForCalendarView: TrainingSession[] = [
     trainer: "David",
     location: "Spirit Boulder Budaörs",
     description: "Gyerek edzés 8-14 éves korig",
+    training_type: "Gyerek",
   },
   {
     start_time: "10:00",
@@ -17,6 +18,7 @@ const mockedDataForCalendarView: TrainingSession[] = [
     trainer: "James",
     location: "Urban Climb Central",
     description: "Intensive strength training",
+    training_type: "Erőnléti",
   },
   {
     start_time: "18:00",
@@ -24,6 +26,7 @@ const mockedDataForCalendarView: TrainingSession[] = [
     trainer: "Sophia",
     location: "Spirit Boulder Budaörs",
     description: "Intensive strength training",
+    training_type: "Erőnléti",
   },
   {
     start_time: "12:00",
@@ -31,6 +34,7 @@ const mockedDataForCalendarView: TrainingSession[] = [
     trainer: "Emma",
     location: "Urban Climb Central",
     description: "Family climbing session",
+    training_type: "Kezdő",
   },
   {
     start_time: "14:00",
@@ -38,6 +42,7 @@ const mockedDataForCalendarView: TrainingSession[] = [
     trainer: "Sarah",
     location: "Spirit Boulder Budaörs",
     description: "Kids training for ages 8-14",
+    training_type: "Gyerek kezdő",
   },
   {
     start_time: "14:00",
@@ -45,6 +50,7 @@ const mockedDataForCalendarView: TrainingSession[] = [
     trainer: "Emma",
     location: "Urban Climb Central",
     description: "Beginner level class",
+    training_type: "Gyerek ",
   },
   {
     start_time: "10:00",
@@ -52,11 +58,13 @@ const mockedDataForCalendarView: TrainingSession[] = [
     trainer: "Mike",
     location: "Peak Climbing Gym",
     description: "Family climbing session",
+    training_type: "Haladó",
   },
 ];
 
 const Calendar: React.FC = ({}) => {
   const date = new Date();
+  const currentDay = date.getDate();
   const currentYear = date.getFullYear();
   const current_month = date.getMonth(); //january is 0 dec is 11
 
@@ -75,7 +83,10 @@ const Calendar: React.FC = ({}) => {
           <div key={`empty-${index}`} className="day empty"></div>
         ))}
         {daysArray.map((day) => (
-          <div key={day} className="day">
+          <div
+            key={day}
+            className={`day ${day === currentDay && "currentDay"}`}
+          >
             <ContentList tasks={mockedDataForCalendarView} />
           </div>
         ))}

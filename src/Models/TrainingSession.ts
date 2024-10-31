@@ -4,4 +4,5 @@ export interface TrainingSession {
   trainer: string; // Name of the trainer, e.g., "David"
   location: string; // Location of the session, e.g., "Spirit Boulder Budaörs"
   description: string; // Description of the session, e.g., "Gyerek edzés 8-14 éves korig"
+  training_type: string;
 }

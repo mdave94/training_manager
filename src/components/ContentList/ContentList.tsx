@@ -26,7 +26,7 @@ const ContentList = ({ tasks }: ContentListProps) => {
     <>
       <div className="contentlistContainer">
         {randomTexts.map((item) => (
-          <ContentElement text={item.start_time} />
+          <ContentElement data={item} />
         ))}
       </div>
     </>
