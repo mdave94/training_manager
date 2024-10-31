@@ -1,0 +1,14 @@
+.container {
+  background-color: aqua;
+  cursor: pointer;
+  height: fit-content;
+  border-radius: 8px;
+  font-size: small;
+  padding: 4px;
+  margin-bottom: 4px;
+  transition: opacity 0.3s ease;
+}
+
+.container:hover {
+  opacity: 0.8;
+}
