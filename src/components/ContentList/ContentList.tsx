@@ -1,11 +1,13 @@
 import ContentElement from "./ContentElement";
 import "./contentList.css";
+import { TrainingSession } from "../../Models/TrainingSession";
+
 type ContentListProps = {
-  tasks: String[];
+  tasks: TrainingSession[];
 };
 
 const ContentList = ({ tasks }: ContentListProps) => {
-  const getRandomStrings = (): String[] => {
+  const getRandomStrings = (): TrainingSession[] => {
     // Randomly decide how many strings to select (1-4)
     const count = Math.floor(Math.random() * 3) + 1;
 
@@ -24,7 +26,7 @@ const ContentList = ({ tasks }: ContentListProps) => {
     <>
       <div className="contentlistContainer">
         {randomTexts.map((item) => (
-          <ContentElement text={item} />
+          <ContentElement text={item.start_time} />
         ))}
       </div>
     </>
