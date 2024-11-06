@@ -1,14 +1,26 @@
-import ContentElement from "./ContentElement";
-import "./contentList.css";
+import React, { useState } from "react";
 import { TrainingSession } from "../../Models/TrainingSession";
+import ContentElement from "./ContentElement";
+import SessionPopup from "./SessionPopup/SessionPopup";
+import "./contentList.css";
 
 type ContentListProps = {
   tasks: TrainingSession[];
 };
 
-const ContentList = ({ tasks }: ContentListProps) => {
+const ContentList: React.FC<ContentListProps> = ({ tasks }) => {
+  const [selectedSession, setSelectedSession] =
+    useState<TrainingSession | null>(null);
+
+  const handleClick = (session: TrainingSession) => {
+    setSelectedSession(session);
+  };
+
+  const closePopup = () => {
+    setSelectedSession(null);
+  };
+
   const getRandomStrings = (): TrainingSession[] => {
-    // Randomly decide how many strings to select (1-4)
     const count = Math.floor(Math.random() * 3) + 1;
 
     // Shuffle and select the required number of strings
@@ -23,13 +35,18 @@ const ContentList = ({ tasks }: ContentListProps) => {
   const randomTexts = getRandomStrings();
 
   return (
-    <>
-      <div className="contentlistContainer">
-        {randomTexts.map((item) => (
-          <ContentElement data={item} />
-        ))}
-      </div>
-    </>
+    <div className="contentlistContainer">
+      {randomTexts.map((item, index) => (
+        <ul key={index}>
+          <li>
+            <ContentElement data={item} onClick={() => handleClick(item)} />
+          </li>
+        </ul>
+      ))}
+      {selectedSession && (
+        <SessionPopup session={selectedSession} onClose={closePopup} />
+      )}
+    </div>
   );
 };
 

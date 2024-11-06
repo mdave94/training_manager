@@ -1,18 +1,19 @@
-import "./contentElement.css"; // Import the CSS file
+import React from "react";
+import "./contentElement.css";
 import { TrainingSession } from "../../Models/TrainingSession";
 
 type ContentElementProps = {
   data: TrainingSession;
+  onClick: () => void;
 };
 
-const ContentElement = ({ data }: ContentElementProps) => {
+const ContentElement: React.FC<ContentElementProps> = ({ data, onClick }) => {
   return (
-    <div className="container">
+    <div className="container" onClick={onClick}>
       <p>
-        [{data.start_time}-{data.end_time}]
+        [{data.start_time} - {data.end_time}]
       </p>
-
-      <div className="">
+      <div>
         {data.trainer} - {data.training_type}
       </div>
     </div>
