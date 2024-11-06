@@ -11,12 +11,15 @@
 }
 
 .popup-content {
+  display: flex;
+  flex-direction: column;
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   width: 300px;
   max-width: 90%;
   position: relative;
+  align-items: flex-start;
 }
 
 .close-button {

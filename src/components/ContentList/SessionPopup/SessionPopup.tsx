@@ -13,21 +13,21 @@ const SessionPopup: React.FC<SessionPopupProps> = ({ session, onClose }) => {
         <button className="close-button" onClick={onClose}>
           &times;
         </button>
-        <h2>Session Details</h2>
+        <h2>Edzés részletei</h2>
         <p>
-          <strong>Time:</strong> {session.start_time} - {session.end_time}
+          <strong>Időpont:</strong> {session.start_time} - {session.end_time}
         </p>
         <p>
-          <strong>Trainer:</strong> {session.trainer}
+          <strong>Edző:</strong> {session.trainer}
         </p>
         <p>
-          <strong>Location:</strong> {session.location}
+          <strong>Helyszín:</strong> {session.location}
         </p>
         <p>
-          <strong>Description:</strong> {session.description}
+          <strong>Leírás:</strong> {session.description}
         </p>
         <p>
-          <strong>Training Type:</strong> {session.training_type}
+          <strong>Edzés típus:</strong> {session.training_type}
         </p>
       </div>
     </div>
